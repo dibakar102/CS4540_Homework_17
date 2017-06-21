@@ -20,7 +20,7 @@ public class NetworkUtils {
     public static final String BASE_URL = "https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest";
 
     final static String API_PARAM = "apikey";
-    private static final String myAPI = "e75e201563564ec790664e0d5639fa52";
+    private static final String myAPI = "";
 
     public static URL makeURL(){
         Uri uri = Uri.parse(BASE_URL).buildUpon().appendQueryParameter(API_PARAM, myAPI).build();
