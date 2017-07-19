@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/all_categories"
+        android:title="@string/select_category"
+        app:showAsAction="always"
+
+        />
+    <item
+        android:id="@+id/official"
+        android:title="@string/official"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/personal"
+        android:title="@string/personal"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/health"
+        android:title="@string/health"
+        app:showAsAction="never" />
+
+</menu>

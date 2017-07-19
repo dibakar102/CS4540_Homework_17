@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <!--Add items for 'category' spinner-->
+    <string-array name="typesOfCategory">
+        <item>Official</item>
+        <item>Home</item>
+        <item>Personal</item>
+        <item>Health</item>
+    </string-array>
+    <string name="select_category">All</string>
+    <string name="official">Official</string>
+    <string name="home">Home</string>
+    <string name="personal">Personal</string>
+    <string name="health">Health</string>
+</resources>
