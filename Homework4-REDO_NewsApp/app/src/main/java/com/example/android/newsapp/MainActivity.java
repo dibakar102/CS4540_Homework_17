@@ -42,12 +42,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //loads database into recyclerview to display
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_news);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
+        //this part checks whether the app has been installed before
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isFirst = prefs.getBoolean("isfirst", true);
 
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         return true;
     }
+    //Asyntaskloader will retrieve the application
     @Override
     public Loader<Void> onCreateLoader(int id, final Bundle args) {
         return new AsyncTaskLoader<Void>(this) {
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 super.onStartLoading();
                 progressBar.setVisibility(View.VISIBLE);
             }
-
+            //refresh the article
             @Override
             public Void loadInBackground() {
                 RefreshTasks.refreshArticles(MainActivity.this);
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         };
     }
+    //once load is finished data is set to reset in recyclerview and using dbhelper class data is retreived from the database
     @Override
     public void onLoadFinished(Loader<Void> loader, Void data) {
         progressBar.setVisibility(View.GONE);

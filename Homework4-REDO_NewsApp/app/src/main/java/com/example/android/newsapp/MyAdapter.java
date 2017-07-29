@@ -23,6 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemHolder>{
     private Context context;
     public static final String TAG = "myadapter";
 
+    //constructor to accept cursor.
     public MyAdapter(Cursor cursor, ItemClickListener listener){
         this.cursor = cursor;
         this.listener = listener;
@@ -75,6 +76,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemHolder>{
             newsDescription.setText(cursor.getString(cursor.getColumnIndex(Contract.NewsItem.COLUMN_DESCRIPTION)));
             newsTime.setText(cursor.getString(cursor.getColumnIndex(Contract.NewsItem.COLUMN_PUBLISHED_AT)));
 
+            //Picasso to load a thumbnail for each news item in recycler view
+            
             String urlToImage = cursor.getString(cursor.getColumnIndex(Contract.NewsItem.COLUMN_URL_TO_IMAGE));
             Log.d(TAG, urlToImage);
             if(urlToImage != null){
